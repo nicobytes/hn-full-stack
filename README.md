@@ -15,7 +15,7 @@ make start
 
 # Services
 
-![image](/images/services.jpg)
+![image](/images/services.png)
 
 - localhost:3001 => Backend API - NestJS
 - localhost:3000 => Frontend WebApp - NextJS/React
