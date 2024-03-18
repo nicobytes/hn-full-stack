@@ -42,14 +42,17 @@ export class TasksService {
     private configService: ConfigType<typeof config>,
   ) {}
 
-  @Cron(CronExpression.EVERY_10_SECONDS)
-  handleCron() {
-    this.logger.debug('Called when the current second is 10');
-    this.http.get<HNResponse>(this.configService.hn_endpoint).subscribe({
-      next: async (response) => {
-        const results = await this.insertNews(response.data);
-        this.logger.debug(`Inserted ${results.length} news`);
-      },
+  @Cron(CronExpression.EVERY_HOUR)
+  makeRequest() {
+    this.logger.debug('Called to API to get news');
+    return new Promise((resolve) => {
+      this.http.get<HNResponse>(this.configService.hn_endpoint).subscribe({
+        next: async (response) => {
+          const results = await this.insertNews(response.data);
+          this.logger.debug(`Inserted ${results.length} news`);
+          resolve(results);
+        },
+      });
     });
   }
 
