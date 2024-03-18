@@ -139,7 +139,7 @@ POSTGRES_URL=postgres://admin_nico:2am3d24in&!@postgres:5432/news
 - [x] The user should be able to view a web page which shows the most recent posts in date order (newer first).
 - [x] Relative format using DayJS
 - [x] The server component should be coded in TypeScript.
-- [ ] At least 30% test coverage (statements) for the server component.
+- [x] At least 30% test coverage (statements) for the server component.
 - [x] The whole project has to be uploaded to GitHub.
 - [x] Both artifacts (server and client) must be Dockerized.
 - [x] To start the project there should be a docker-compose that uses both images and the database image.
@@ -147,8 +147,4 @@ POSTGRES_URL=postgres://admin_nico:2am3d24in&!@postgres:5432/news
 - [x] Include a README which explains anything we need to do to run the demo app, for example: setting up a database, forcing a data refresh to populate the DB for the first time, etc.
 - [x] Extra: The client should be compiled in a Docker multi-stage build.
 - [x] Extra: Tests and linters should run on GitHub actions.
-- [ ] Extra: Implement GraphQL in the server component.
-- [ ] Extra: There is a version of the client that uses GraphQL to retrieve the data.
-- [ ] Extra: Greater than 90% the test coverage for the server component.
-- [ ] Extra: Order the news by newest first or oldest first.
-- [ ] Extra: Dark mode and light mode.
+
