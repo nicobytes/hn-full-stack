@@ -15,10 +15,6 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  afterAll(async () => {
-    await app.close();
-  });
-
   it('/health (GET)', () => {
     return request(app.getHttpServer())
       .get('/health')
@@ -27,5 +23,9 @@ describe('AppController (e2e)', () => {
         expect(body.status).toBe('ok');
         expect(body.info['nestjs-docs'].status).toBe('up');
       });
+  });
+
+  afterAll(async () => {
+    await app.close();
   });
 });
