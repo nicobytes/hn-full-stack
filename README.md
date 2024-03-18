@@ -126,3 +126,29 @@ POSTGRES_PORT=postgres
 # OR
 POSTGRES_URL=postgres://admin_nico:2am3d24in&!@postgres:5432/news
 ```
+
+### Tasks
+
+- [x] If "story_title" is null, then use "title". If both are null, discard.
+- [x] Clicking on a row should open "story_url" or "url" on new tab accordingly.
+- [x] The trash button should remove the item from the list, the removed item should not appear the app is restarted.
+- [x] The client should render a web page that lists the articles in chronological order.
+- [x] Once an hour, the server app should connect to this API which shows recently posted articles about Node.js on Hacker News
+- [x] The server app should insert the data from the API into a database
+- [x] The server app should define a REST API which the client will use to retrieve the data.
+- [x] The user should be able to view a web page which shows the most recent posts in date order (newer first).
+- [x] Relative format using DayJS
+- [x] The server component should be coded in TypeScript.
+- [ ] At least 30% test coverage (statements) for the server component.
+- [x] The whole project has to be uploaded to GitHub.
+- [x] Both artifacts (server and client) must be Dockerized.
+- [x] To start the project there should be a docker-compose that uses both images and the database image.
+- [x] The repository should be only one (monorepo), for both server and client.
+- [x] Include a README which explains anything we need to do to run the demo app, for example: setting up a database, forcing a data refresh to populate the DB for the first time, etc.
+- [x] Extra: The client should be compiled in a Docker multi-stage build.
+- [x] Extra: Tests and linters should run on GitHub actions.
+- [ ] Extra: Implement GraphQL in the server component.
+- [ ] Extra: There is a version of the client that uses GraphQL to retrieve the data.
+- [ ] Extra: Greater than 90% the test coverage for the server component.
+- [ ] Extra: Order the news by newest first or oldest first.
+- [ ] Extra: Dark mode and light mode.
