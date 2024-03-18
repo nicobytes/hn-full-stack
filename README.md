@@ -37,7 +37,7 @@ curl --location 'http://localhost:3001/api/v1/tasks/news'
 
 ## Backend API - NestJS
 
-The API was create using NestJS, and once an hour the app to connect to this API (https://hn.algolia.com/api/v1/search_by_date?query=nodejs) using Task Scheduling by NestJS and get the news and save it in the database.
+The API was create using NestJS, and once an hour the app to connect to this API (https://hn.algolia.com/api/v1/search_by_date?query=nodejs) using [Task Scheduling](https://docs.nestjs.com/techniques/task-scheduling) by NestJS and get the news and save it in the database.
 
 The swagger documentation is available at the following endpoint:
 
@@ -46,6 +46,7 @@ The swagger documentation is available at the following endpoint:
 ```
 
 ![image](/images/full_stack_docs.jpg)
+
 
 
 ## Frontend WebApp - NextJS/React

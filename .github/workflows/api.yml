@@ -1,0 +1,21 @@
+name: API
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - 'api/**'
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: Setup
+        run: npm ci
+      - name: Linter
+        run: npm run lint:ci
