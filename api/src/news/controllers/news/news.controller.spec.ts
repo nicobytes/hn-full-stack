@@ -29,6 +29,7 @@ describe('NewsController', () => {
   });
 
   it('should return an array', async () => {
+    // arrange
     const getAllSpy = jest.spyOn(newsService, 'getAll').mockResolvedValue([]);
     const data = await controller.getAll();
     expect(data.length).toEqual(0);
