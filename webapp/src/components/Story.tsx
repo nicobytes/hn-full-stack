@@ -1,9 +1,9 @@
-import { Story } from '@/models/story.model';
+import { Story as StoryModel } from '@/models/story.model';
 import { formatDay } from "@/utils/formatDate";
 import { TrashIcon } from "@heroicons/react/24/solid";
 
 export interface Props {
-  story: Story;
+  story: StoryModel;
   onDelete: (id: number) => void;
 }
 

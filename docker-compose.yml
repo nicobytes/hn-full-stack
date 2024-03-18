@@ -2,6 +2,7 @@ version: '3.3'
 services:
   # Main services
   api:
+    restart: always
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -10,6 +11,7 @@ services:
     depends_on:
         - postgres
   webapp:
+    restart: always
     build:
       context: ./webapp
       dockerfile: Dockerfile
@@ -18,16 +20,18 @@ services:
     depends_on:
         - api
   celery:
-      build:
-        context: ./celery
-        dockerfile: Dockerfile
-      depends_on:
-        - redis
-        - flower
-      volumes:
-        - ./celery/app:/app
+    restart: always
+    build:
+      context: ./celery
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+      - flower
+    volumes:
+      - ./celery/app:/app
   # Databases
   postgres:
+    restart: always
     image: postgres:16
     environment:
       - POSTGRES_DB=news
