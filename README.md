@@ -1,5 +1,8 @@
-docker compose build
-docker compose up -d
+![image](/images/cover.jpg)
+
+# Running the project
+
+docker compose up -d --build
 docker compose ps
 
 localhost:8080 => adminer

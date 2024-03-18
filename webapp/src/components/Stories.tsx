@@ -15,7 +15,7 @@ export default function Stories() {
   return (
     <main className="w-full mx-auto max-w-screen-lg">
       <div className="flex justify-center">
-        <div className="container lg">
+        <div className="container">
           {isLoading && <p className="text-white">Loading...</p>}
           {data.map((story) => (
             <Story key={story.id} story={story} onDelete={onDelete} />

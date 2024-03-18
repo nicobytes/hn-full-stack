@@ -14,27 +14,18 @@ check:
 down:
 	docker compose down
 
-celery-build:
-	docker compose build celery
-
 celery-up:
 	docker compose up celery -d
 
 celery-dev:
-	docker compose up celery -d
+	docker compose up celery -d --build
 	docker compose exec -it celery bash
 
-webapp-build:
-	docker compose build webapp
-
 webapp-up:
-	docker compose up webapp -d
-
-api-build:
-	docker compose build api
+	docker compose up webapp -d --build
 
 api-up:
-	docker compose up api -d
+	docker compose up api -d --build
 
 postgres-up:
 	docker compose up postgres adminer -d
