@@ -6,8 +6,11 @@ on:
     paths:
       - 'api/**'
 jobs:
-  linter:
+  api-tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api
     steps:
       - name: Clone
         uses: actions/checkout@v4
@@ -16,8 +19,6 @@ jobs:
         with:
           node-version: 20.x
       - name: Setup
-        working-directory: api/
         run: npm ci
       - name: Linter
-        working-directory: api/
         run: npm run lint:ci
