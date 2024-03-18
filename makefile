@@ -29,3 +29,7 @@ api-up:
 
 postgres-up:
 	docker compose up postgres adminer -d
+
+migrations:
+	docker compose up api -d
+	docker compose exec -it api npm run migrations:run

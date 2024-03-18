@@ -52,7 +52,7 @@ The swagger documentation is available at the following endpoint:
 
 The frontend was built using Tailwindcss, NextJS and React, and connects to the backend API to retrieve the news and display it in the web application. At this point, I used [React](https://tanstack.com/query/v3/) Query to manage the state of the application and make the requests to the backend API with great performance.
 
-To dockerize the frontend, I used the multi-stage build to build the application and serve it using NodeJS.
+To dockerize a NextJS, I used the multi-stage build to build the application and serve it using NodeJS.
 
 <details>
 <summary>Click to view</summary>
@@ -103,10 +103,14 @@ CMD node server.js
 The database was created using PostgreSQL and the migrations are performed by TypeORM, and the database is populated with the news from the Hacker News API. If is necessary to run the migrations manually, you can run the following command:
 
 ```bash
-docker compose exec -it api npm run migration:run
+docker compose exec -it api npm run migrations:run
+
+#or
+
+make migrations
 ```
 
-But the migrations are performed automatically when the service starts. Using adminer, you can access the database and see the tables and data in localhost:8080.
+But the migrations are performed automatically when the service starts. Also using adminer, you can access the database and see the tables and data in localhost:8080.
 
 ![image](/images/full_stack_adminer.jpg)
 
