@@ -33,6 +33,7 @@ describe('NewsController', () => {
     const getAllSpy = jest.spyOn(newsService, 'getAll').mockResolvedValue([]);
     // act
     const data = await controller.getAll();
+    // assert
     expect(data.length).toEqual(0);
     expect(getAllSpy).toHaveBeenCalled();
   });
