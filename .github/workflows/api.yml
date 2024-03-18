@@ -16,6 +16,7 @@ jobs:
       - name: Setup
         run: |
           cd api
+          pwd
           npm ci
       - name: Linter
         working-directory: ./api

@@ -28,6 +28,7 @@ describe('TasksController', () => {
   });
 
   it('should return an array', async () => {
+    // arrange
     const makeRequestSpy = jest
       .spyOn(service, 'makeRequest')
       .mockResolvedValue([]);
