@@ -16,6 +16,7 @@ export default function Header() {
                     <figure>
                       <Image
                         src="/logoDark.png"
+                        alt="logo"
                         className="w-20 rounded bg-zinc-950 bg-opacity-0"
                         width={500}
                         height={200}
