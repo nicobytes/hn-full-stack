@@ -32,6 +32,7 @@ describe('TasksController', () => {
     const makeRequestSpy = jest
       .spyOn(service, 'makeRequest')
       .mockResolvedValue([]);
+    // act
     await controller.makeRequest();
     expect(makeRequestSpy).toHaveBeenCalled();
   });
