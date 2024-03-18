@@ -7,6 +7,9 @@ up:
 check:
 	docker compose ps
 
+down:
+	docker compose down
+
 celery-build:
 	docker compose build celery
 
@@ -28,3 +31,6 @@ api-build:
 
 api-up:
 	docker compose up api -d
+
+postgres-up:
+	docker compose up postgres adminer -d

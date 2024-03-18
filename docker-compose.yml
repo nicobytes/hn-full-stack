@@ -28,15 +28,15 @@ services:
         - ./celery/app:/app
   # Databases
   postgres:
-    image: postgres
-    restart: always
+    image: postgres:16
     environment:
-      - POSTGRES_PASSWORD:changethis
-      - POSTGRES_USER:root
-    volumes:
-      - app-db-data:/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=news
+      - POSTGRES_USER=admin_nico
+      - POSTGRES_PASSWORD=2am3d24in&!
     ports:
       - '5432:5432'
+    volumes:
+      - app-db-data:/var/lib/postgresql/data
   redis:
     image: redis
     restart: always
