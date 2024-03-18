@@ -4,7 +4,7 @@ on:
     paths:
       - 'api/**'
 jobs:
-  api-tests:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Clone
@@ -14,8 +14,6 @@ jobs:
         with:
           node-version: 20.x
       - name: Setup
-        run: | 
-          cd api
-          npm ci
+        run: npm ci
       - name: Linter
         run: npm run lint:ci
