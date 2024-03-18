@@ -23,7 +23,7 @@ interface Hit {
   _tags: string[];
 }
 
-interface HNResponse {
+export interface HNResponse {
   hitsPerPage: number;
   hits: Hit[];
 }
@@ -35,9 +35,9 @@ export class TasksService {
   constructor(
     private http: HttpService,
     @InjectRepository(Story)
-    private storyRepo: Repository<Story>,
+    private readonly storyRepo: Repository<Story>,
     @InjectRepository(DeletedStories)
-    private deletedStoriesRepo: Repository<DeletedStories>,
+    private readonly deletedStoriesRepo: Repository<DeletedStories>,
     @Inject(config.KEY)
     private configService: ConfigType<typeof config>,
   ) {}

@@ -9,7 +9,7 @@ export class TasksController {
   constructor(private tasksService: TasksService) {}
 
   @Get('/news')
-  getAll() {
+  makeRequest() {
     return this.tasksService.makeRequest();
   }
 }

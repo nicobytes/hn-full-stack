@@ -83,6 +83,12 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@src/(.*)": "<rootDir>/../src/$1",
+      "@database/(.*)": "<rootDir>/../src/database/$1",
+      "@news/(.*)": "<rootDir>/../src/news/$1",
+      "@tasks/(.*)": "<rootDir>/../src/tasks/$1"
+    }
   }
 }
