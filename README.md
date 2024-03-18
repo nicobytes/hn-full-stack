@@ -48,7 +48,77 @@ The swagger documentation is available at the following endpoint:
 ![image](/images/full_stack_docs.jpg)
 
 
-
 ## Frontend WebApp - NextJS/React
 
+The frontend was built using Tailwindcss, NextJS and React, and connects to the backend API to retrieve the news and display it in the web application. At this point, I used [React](https://tanstack.com/query/v3/) Query to manage the state of the application and make the requests to the backend API with great performance.
+
+To dockerize the frontend, I used the multi-stage build to build the application and serve it using NodeJS.
+
+<details>
+<summary>Click to view</summary>
+
+```
+FROM node:20 AS base
+WORKDIR /app
+COPY package.json package-lock.json ./
+
+FROM base as builder
+WORKDIR /app
+COPY . .
+RUN npm ci
+RUN npm run build
+
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+
+# Set the correct permission for prerender cache
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
+
+CMD node server.js
+```
+
+</details>
+
+
 ## Database - PostgreSQL 
+
+The database was created using PostgreSQL and the migrations are performed by TypeORM, and the database is populated with the news from the Hacker News API. If is necessary to run the migrations manually, you can run the following command:
+
+```bash
+docker compose exec -it api npm run migration:run
+```
+
+But the migrations are performed automatically when the service starts. Using adminer, you can access the database and see the tables and data in localhost:8080.
+
+![image](/images/full_stack_adminer.jpg)
+
+Here data access to postgres:
+
+```bash
+POSTGRES_DB=news
+POSTGRES_USER=admin_nico
+POSTGRES_PASSWORD=2am3d24in&!
+POSTGRES_HOST=postgres
+POSTGRES_PORT=postgres
+
+# OR
+POSTGRES_URL=postgres://admin_nico:2am3d24in&!@postgres:5432/news
+```
