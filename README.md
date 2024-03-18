@@ -13,7 +13,7 @@ Or using the Makefile
 make start
 ```
 
-## Populate the database
+## Populating the database
 
 As part of the project, when the NestJS service starts, it will perform the migrations and make the first request to get news automatically, but if you want to run the process to get news and populate the database, you can run the following endpoint:
 
@@ -36,6 +36,17 @@ curl --location 'http://localhost:3001/api/v1/tasks/news'
 - localhost:5432 => Database - PostgreSQL 
 
 ## Backend API - NestJS
+
+The API was create using NestJS, and once an hour the app to connect to this API (https://hn.algolia.com/api/v1/search_by_date?query=nodejs) using Task Scheduling by NestJS and get the news and save it in the database.
+
+The swagger documentation is available at the following endpoint:
+
+```bash
+[GET] http://localhost:3001/docs
+```
+
+![image](/images/full_stack_docs.jpg)
+
 
 ## Frontend WebApp - NextJS/React
 
