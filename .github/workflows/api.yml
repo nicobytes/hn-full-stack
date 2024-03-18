@@ -1,8 +1,6 @@
 name: API
 on:
   push:
-    branches:
-      - "main"
     paths:
       - 'api/**'
 jobs:
