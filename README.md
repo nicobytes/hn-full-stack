@@ -146,6 +146,5 @@ POSTGRES_URL=postgres://admin_nico:2am3d24in&!@postgres:5432/news
 - [x] The repository should be only one (monorepo), for both server and client.
 - [x] Include a README which explains anything we need to do to run the demo app, for example: setting up a database, forcing a data refresh to populate the DB for the first time, etc.
 - [x] Extra: The client should be compiled in a Docker multi-stage build.
-- [x] Extra: Tests and linters should run on GitHub actions.
+- [ ] Extra: Tests and linters should run on GitHub actions.
 
-as
