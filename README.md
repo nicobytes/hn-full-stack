@@ -148,4 +148,3 @@ POSTGRES_URL=postgres://admin_nico:2am3d24in&!@postgres:5432/news
 - [x] Extra: The client should be compiled in a Docker multi-stage build.
 - [x] Extra: Tests and linters should run on GitHub actions.
 
-- as
