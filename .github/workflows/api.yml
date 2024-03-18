@@ -16,11 +16,14 @@ jobs:
       - name: Setup
         run: |
           cd api
-          ls -la
           npm ci
       - name: Linter
         working-directory: ./api
-        run: npm run lint:ci
+        run: |
+          cd api
+          npm run lint:ci
       - name: Unit tests
         working-directory: ./api
-        run: npm run test
+        run: |
+          cd api
+          npm run test
