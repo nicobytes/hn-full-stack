@@ -14,8 +14,8 @@ jobs:
         with:
           node-version: 20.x
       - name: Setup
-        run: | 
-          cd api
-          npm ci
+        working-directory: ./webapp
+        run: npm ci
       - name: Linter
-        run: npm run lint:ci
+        working-directory: ./webapp
+        run: npm run lint
